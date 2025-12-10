@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XV Paola</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: "Cormorant Garamond", serif;
+        background: radial-gradient(circle at top, #0e1a33, #020916);
+        color: #f3f3f3;
+        text-align: center;
+        overflow-x: hidden;
+    }
+
+    /* PARTÍCULAS DORADAS */
+    .particula {
+        position: fixed;
+        background: rgba(255, 215, 140, 0.25);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: flotar 7s linear infinite;
+    }
+
+    @keyframes flotar {
+        from { transform: translateY(0); opacity: 0.9; }
+        to { transform: translateY(-120vh); opacity: 0; }
+    }
+
+    /* ENCABEZADO */
+    header h1 {
+        font-size: 2.7rem;
+        margin-top: 25px;
+        color: #f5e8c8;
+        text-shadow: 0 0 14px rgba(0, 0, 0, .7);
+        letter-spacing: 3px;
+    }
+
+    /* FOTO PRINCIPAL */
+    .foto-xv {
+        width: 100%;
+        height: 50vh;
+        background: #09172c;
+        border-bottom: 2px solid rgba(255, 215, 140, 0.3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #c9d9ff;
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+        text-shadow: 0 0 12px #000;
+    }
+
+    /* SECCIONES PREMIUM */
+    .seccion {
+        background: rgba(10, 18, 35, 0.55);
+        margin: 28px auto;
+        padding: 35px 20px;
+        width: 85%;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 215, 140, 0.25);
+        box-shadow: 0 0 25px rgba(0,0,0,0.40);
+        backdrop-filter: blur(5px);
+        animation: fadeIn 2s ease forwards;
+    }
+
+    h2 {
+        font-size: 2.1rem;
+        margin-bottom: 12px;
+        color: #f4e6c2;
+        text-shadow: 0 0 10px #000;
+    }
+
+    p {
+        font-size: 1.25rem;
+        color: #e4edff;
+    }
+
+    .boton {
+        background: linear-gradient(90deg, #1f335c, #314f89);
+        padding: 14px 27px;
+        border-radius: 30px;
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        transition: 0.3s ease;
+        display: inline-block;
+        box-shadow: 0 0 18px rgba(0,0,0,0.55);
+    }
+
+    .boton:hover {
+        transform: scale(1.06);
+        box-shadow: 0 0 25px rgba(255, 215, 140, 0.45);
+    }
+
+    .imgdivs {
+        width: 42px;
+        margin-bottom: -8px;
+        filter: drop-shadow(0 0 4px rgba(255,215,140,0.7));
+    }
+
+    /* ANIMACIÓN FADE */
+    .fade-up {
+        opacity: 0;
+        transform: translateY(40px);
+        filter: blur(8px);
+        transition: 1s ease;
+    }
+    .visible {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+
+    /* BOTÓN MUSICAL ELEGANTE */
+    #btnMusic {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        background: rgba(15, 25, 55, 0.85);
+        border: 2px solid rgba(255, 215, 140, 0.4);
+        color: #f9f9f9;
+        padding: 15px 18px;
+        border-radius: 50%;
+        font-size: 22px;
+        cursor: pointer;
+        box-shadow: 0 0 20px rgba(0,0,0,.6);
+        transition: 0.25s;
+    }
+
+    #btnMusic:hover {
+        transform: scale(1.15);
+        box-shadow: 0 0 25px rgba(255,215,140,.45);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 620px) {
+        header h1 { font-size: 2rem; }
+        .foto-xv { height: 42vh; font-size: 1rem; }
+        h2 { font-size: 1.7rem; }
+        p { font-size: 1.1rem; }
+        .seccion { width: 92%; }
+    }
+</style>
+</head>
+<body>
+
+<!-- MÚSICA AUTOMÁTICA -->
+<audio id="music" autoplay loop>
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<!-- BOTÓN MÚSICA -->
+<button id="btnMusic">⏸</button>
+
+<!-- PARTICULAS -->
+<script>
+function crearParticula() {
+    const p = document.createElement("div");
+    const size = Math.random() * 10 + 5;
+    p.classList.add("particula");
+    p.style.width = size + "px";
+    p.style.height = size + "px";
+    p.style.left = Math.random() * window.innerWidth + "px";
+    p.style.bottom = "-30px";
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 7000);
+}
+setInterval(crearParticula, 250);
+</script>
+
+<!-- TÍTULO -->
+<header class="fade-up">
+    <h1>XV Años de Paola Azúa</h1>
+</header>
+
+<!-- FOTO O PORTADA -->
+<div class="foto-xv fade-up">
+    <p>Acompáñame a celebrar este día tan especial</p>
+</div>
+
+<!-- FECHA -->
+<div class="seccion fade-up">
+    <h2><img src="icons/fecha.png" class="imgdivs"> Fecha</h2>
+    <p>Sábado 20 de Diciembre de 2025</p>
+</div>
+
+<!-- CEREMONIA -->
+<div class="seccion fade-up">
+    <h2><img src="icons/iglesia.png" class="imgdivs"> Ceremonia</h2>
+    <p>5:00 PM • Iglesia La Hermosa Pentecostés</p>
+</div>
+
+<!-- RECEPCIÓN -->
+<div class="seccion fade-up">
+    <h2><img src="icons/ubicación.png" class="imgdivs"> Recepción</h2>
+    <p>8:00 PM • Salón Principal</p>
+</div>
+
+<!-- MAPA -->
+<div class="seccion fade-up">
+    <a href="https://maps.app.goo.gl/JowZDLWnUvBGe5SS6" target="_blank" class="boton">Ver ubicación</a>
+</div>
+
+<script>
+/* ANIMACIÓN FADE-UP */
+document.querySelectorAll(".fade-up").forEach(el => {
+    const obs = new IntersectionObserver(e => {
+        e.forEach(x => { if (x.isIntersecting) x.target.classList.add("visible"); });
+    });
+    obs.observe(el);
+});
+
+/* CONTROL DE MÚSICA */
+const music = document.getElementById("music");
+const btnMusic = document.getElementById("btnMusic");
+let sonando = true;
+
+music.play().catch(() => {
+    document.body.addEventListener("click", () => music.play(), { once: true });
+});
+
+btnMusic.onclick = () => {
+    if (sonando) {
+        music.pause();
+        btnMusic.innerHTML = "🎵";
+    } else {
+        music.play();
+        btnMusic.innerHTML = "⏸";
+    }
+    sonando = !sonando;
+};
+</script>
+
+</body>
+</html>
