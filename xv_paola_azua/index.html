@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XV de Paola</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Cormorant Garamond", serif;
+        background: radial-gradient(circle at top, #0e1a33, #020916);
+        color: #f6f6f6;
+        text-align: center;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    /* Partículas doradas */
+    .brillos {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+    }
+
+    .brillo {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: gold;
+        border-radius: 50%;
+        opacity: 0.8;
+        animation: flotar 6s infinite linear;
+    }
+
+    @keyframes flotar {
+        from { transform: translateY(100vh); opacity: 0; }
+        to { transform: translateY(-10vh); opacity: 1; }
+    }
+
+    .contenedor {
+        padding-top: 60px;
+        animation: fadeIn 2.5s ease forwards;
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 25px;
+        letter-spacing: 3px;
+        color: #f4e9c5;
+        text-shadow: 0 0 15px #000;
+    }
+
+    .foto {
+        width: 280px;
+        height: 380px;
+        background: #07142a;
+        border: 2px solid #bfa76f;
+        outline: 4px solid rgba(255, 215, 0, 0.3);
+        border-radius: 18px;
+        margin: auto;
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+        background-size: cover;
+        background-position: center;
+        transition: 0.4s;
+    }
+
+    .foto:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+    }
+
+    .boton {
+        margin-top: 40px;
+        display: inline-block;
+        padding: 15px 45px;
+        background: linear-gradient(90deg, #1f335c, #2e4e88);
+        color: #f9f9f9;
+        font-size: 1.3rem;
+        border-radius: 40px;
+        text-decoration: none;
+        letter-spacing: 1px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        transition: 0.3s;
+    }
+
+    .boton:hover {
+        transform: scale(1.06);
+        background: linear-gradient(90deg, #2e4e88, #1f335c);
+        box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(25px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- partículas doradas -->
+<div class="brillos" id="brillos"></div>
+
+<div class="contenedor">
+    <h1>XV de Paola</h1>
+
+    <!-- FOTO -->
+    <div class="foto" style="background-image: url('ruta-de-tu-foto.jpg');"></div>
+
+    <a class="boton" href="mis_xv.html">Pulsa aquí</a>
+</div>
+
+<script>
+    // Generador de brillos dorados
+    const brillos = document.getElementById("brillos");
+
+    for (let i = 0; i < 40; i++) {
+        let b = document.createElement("div");
+        b.classList.add("brillo");
+        b.style.left = Math.random() * 100 + "%";
+        b.style.animationDuration = (4 + Math.random() * 6) + "s";
+        b.style.opacity = Math.random();
+        brillos.appendChild(b);
+    }
+</script>
+
+</body>
+</html>
